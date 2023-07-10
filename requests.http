@@ -1,0 +1,11 @@
+# пример GET запроса
+GET   http://127.0.0.1:8000/api/users
+### admin
+GET http://127.0.0.1:8000/api
+### user
+GET http://127.0.0.1:8000/api/users
+###
+GET http://127.0.0.1:8000/api/users/1
+###
+POST   http://127.0.0.1:8000/api/auth/token/login/
+tags

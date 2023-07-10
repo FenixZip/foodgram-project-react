@@ -20,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Николай, секреты сделаю, когда буду отправлять проект на сервер
 SECRET_KEY = 'x*0)dxhvp*(%f9o0!gto4sur-mar(ayjs&(7ctn^7=4u)7wr5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'foodgram.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+# БД поменяю при отправке на сервер
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -163,3 +164,5 @@ STATIC_ROOT = BASE_DIR / 'collected_static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+MAXIMUM_LEN = 200

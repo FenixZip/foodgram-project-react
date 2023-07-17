@@ -178,7 +178,7 @@ class RecipeEditSerializer(serializers.ModelSerializer):
             instance.ingredients.clear()
             self.create_ingredients(ingredients, instance)
         if 'tags' in validated_data:
-            instance.tags.set(
+            instance.tags.set.clear(
                 validated_data.pop('tags'))
         return super().update(
             instance, validated_data)

@@ -4,8 +4,6 @@ from django.db.models import Count
 from .models import (FavoriteRecipe, Ingredient, IngredientAmount, Recipe,
                      ShoppingCart, Subscribe, Tag)
 
-# Register your models here.
-
 
 class IngredientAmountAdmin(admin.TabularInline):
     model = IngredientAmount

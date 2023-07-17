@@ -14,7 +14,7 @@ class Tag(models.Model):
     )
     color = models.CharField(
         'Цветовой HEX-код',
-        max_length=settings.MAXIMUM_LEN,
+        max_length=7,
         default='#00ff7f',
         null=True,
         blank=True,
@@ -38,7 +38,7 @@ class Tag(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(
         'Название ингредиента',
-        max_length=200,
+        max_length=settings.MAXIMUM_LEN,
     )
     measurement_unit = models.CharField(
         'Единицы измерения',

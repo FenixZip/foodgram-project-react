@@ -1,24 +1,25 @@
 from django.urls import include, path
 from rest_framework import routers
 
-from . import views
+from .views import (CustomUserViewSet, FavoriteRecipeViewSet,
+                    IngredientViewSet, RecipeViewSet, ShoppingCartViewSet,
+                    SubscribeViewSet, TagViewSet)
 
 app_name = 'api'
 
 router = routers.DefaultRouter()
-
-router.register('users', views.CustomUserViewSet, basename='users')
-router.register('recipes', views.RecipeViewSet, basename='recipes')
-router.register('ingredients', views.IngredientViewSet, basename='ingredients')
-router.register('tags', views.TagViewSet, basename='tags')
+router.register('users', CustomUserViewSet, basename='users')
+router.register('recipes', RecipeViewSet, basename='recipes')
+router.register('ingredients', IngredientViewSet, basename='ingredients')
+router.register('tags', TagViewSet, basename='tags')
 router.register(
-    r'users/(?P<user_id>\d+)/subscribe', views.SubscribeViewSet,
+    r'users/(?P<user_id>\d+)/subscribe', SubscribeViewSet,
     basename='subscribe')
 router.register(
-    r'recipes/(?P<recipe_id>\d+)/favorite', views.FavoriteRecipeViewSet,
+    r'recipes/(?P<recipe_id>\d+)/favorite', FavoriteRecipeViewSet,
     basename='favorite')
 router.register(
-    r'recipes/(?P<recipe_id>\d+)/shopping_cart', views.ShoppingCartViewSet,
+    r'recipes/(?P<recipe_id>\d+)/shopping_cart', ShoppingCartViewSet,
     basename='shoppingcart')
 
 urlpatterns = [

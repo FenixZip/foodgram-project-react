@@ -85,8 +85,14 @@ Response status 200 OK ✅
 Python 3.9, Django 3.2, DRF 3.13, Nginx, Docker, Docker-compose, Postgresql, Github Actions.  
 <!-- 
 ***Cервер:***  
-http://redsunset.ddns.net/  
-http://redsunset.ddns.net/api/docs/ -->
+Николай, забыл поменять сайт.
+Почему то не принимал стандартный образ ngnix с указанием настроек, то порт занят, меняешь порт
+там еще больше ошибок. чего я только не делал.
+пришлось делать свой образ, как в китиграме и все зарабтало)
+Email: zelik1@yandex.ru
+Password: Qwerty999
+http://foodgram-ya.ddns.net/recipes
+http://foodgram-ya.ddns.net/api/docs/ -->
 
 ***Превью***  
 <img src="https://github.com/HelloAgni/foodgram-project-react/blob/master/backend/media/recipes/images/preview.jpg" alt="img" width="600" height='350'>

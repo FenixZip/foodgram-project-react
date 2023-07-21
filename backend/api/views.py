@@ -25,6 +25,8 @@ User = get_user_model()
 
 
 class RecipeViewSet(viewsets.ModelViewSet):
+    """Работа с рецептами. Создание/изменение/удаление рецепта.
+    Получение информации о рецептах."""
     queryset = Recipe.objects.all()
     permission_classes = (IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly)
     filterset_class = RecipesFilter
@@ -68,6 +70,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
 
 class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
+    """Получение информации об ингредиентах."""
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
@@ -76,6 +79,7 @@ class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class TagViewSet(viewsets.ReadOnlyModelViewSet):
+    """Получение информации о тегах."""
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
@@ -83,6 +87,7 @@ class TagViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class CustomUserViewSet(UserViewSet):
+    """Создание/удаление подписки на пользователя."""
     queryset = User.objects.all()
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
@@ -112,6 +117,7 @@ class CustomUserViewSet(UserViewSet):
 
 
 class SubscribeViewSet(CreateDestroyViewSet):
+    """Получение списка всех подписок на пользователей."""
     serializer_class = SubscribeSerializer
 
     def get_queryset(self):
@@ -147,6 +153,8 @@ class SubscribeViewSet(CreateDestroyViewSet):
 
 
 class FavoriteRecipeViewSet(CreateDestroyViewSet):
+    """Работа с избранными рецептами.
+        Удаление/добавление в избранное."""
     serializer_class = FavoriteRecipeSerializer
 
     def get_queryset(self):
@@ -183,6 +191,7 @@ class FavoriteRecipeViewSet(CreateDestroyViewSet):
 
 
 class ShoppingCartViewSet(CreateDestroyViewSet):
+    """Работа со списком покупок. Удаление/добавление в список покупок."""
     serializer_class = ShoppingCartSerializer
 
     def get_queryset(self):

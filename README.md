@@ -31,12 +31,12 @@ docker-compose exec backend python manage.py data_test
 Если выполнены все импорты в базу данных:
 ```bash
 # Админ зона
-http://localhost/admin
+http://localhost:8000/admin
 Login: admin
 Password: admin777
 
 # Тестовый пользователь
-http://localhost/
+http://localhost:8000
 Email: zelik1@yandex.ru
 Password: Qwerty999
 
@@ -85,14 +85,10 @@ Response status 200 OK ✅
 Python 3.9, Django 3.2, DRF 3.13, Nginx, Docker, Docker-compose, Postgresql, Github Actions.  
 <!-- 
 ***Cервер:***  
-Николай, забыл поменять сайт.
-Почему то не принимал стандартный образ ngnix с указанием настроек, то порт занят, меняешь порт
-там еще больше ошибок. чего я только не делал.
-пришлось делать свой образ, как в китиграме и все зарабтало)
-Email: zelik1@yandex.ru
-Password: Qwerty999
-http://foodgram-ya.ddns.net/recipes
-http://foodgram-ya.ddns.net/api/docs/ -->
+Николай, 
+Login: fenixzip 
+Password: 123qwerty321
+http://foodgram-ya.ddns.net/recipes-->
 
 ***Превью***  
 <img src="https://github.com/HelloAgni/foodgram-project-react/blob/master/backend/media/recipes/images/preview.jpg" alt="img" width="600" height='350'>

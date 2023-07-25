@@ -86,6 +86,7 @@ Python 3.9, Django 3.2, DRF 3.13, Nginx, Docker, Docker-compose, Postgresql, Git
 <!-- 
 ***Cервер:***  
 Николай, 
+Email: fenix15@inbox.ru
 Login: fenixzip 
 Password: 123qwerty321
 http://foodgram-ya.ddns.net/recipes-->

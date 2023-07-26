@@ -44,6 +44,8 @@ class RecipeViewSet(viewsets.ModelViewSet):
         methods=('get',),
         url_path='download_shopping_cart',
         pagination_class=None)
+    def fision():
+        pass
 
 
 class IngredientViewSet(viewsets.ReadOnlyModelViewSet):
@@ -202,6 +204,7 @@ class ShoppingCartViewSet(CreateDestroyViewSet):
             user=request.user,
             recipe=recipe_id).delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
     def download_file(self, request):
         user = request.user
         if not user.shopping_cart.exists():

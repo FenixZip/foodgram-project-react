@@ -17,14 +17,16 @@ cp .env.example .env
 
 **Docker**
  ```bash
-docker compose up -d
-docker-compose exec backend python manage.py migrate
-docker-compose exec backend python manage.py collectstatic --noinput
+sudo docker compose -f docker-compose.production.yml up -d
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py makemigrations 
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic --noinput
 # Для заполнения базы Тегами и ингредиентами выполните:
-docker-compose exec backend python manage.py import_tags
-docker-compose exec backend python manage.py import_ingredients
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py import_tags
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py import_ingredients
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py createsuperuser
 # Для заполнения базы пользователями и рецептами выполните:
-docker-compose exec backend python manage.py data_test
+sudo docker compose -f docker-compose.production.yml exec backend python manage.py data_test
 ```
 ***Тестовый пользователь и администратор***
 

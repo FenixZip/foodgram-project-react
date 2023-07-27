@@ -21,7 +21,6 @@ sudo docker compose -f docker-compose.production.yml up -d
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py makemigrations 
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic --noinput
-# Для заполнения базы Тегами и ингредиентами выполните:
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py import_tags
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py import_ingredients
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py createsuperuser
@@ -34,13 +33,14 @@ sudo docker compose -f docker-compose.production.yml exec backend python manage.
 ```bash
 # Админ зона
 http://localhost:8000/admin
-Login: admin
-Password: admin777
+Email: fenix15@inbox.ru
+Login: fenixzip
+Password: 123qwerty321
 
 # Тестовый пользователь
 http://localhost:8000
-Email: zelik1@yandex.ru
-Password: Qwerty999
+Email: fenixzip@yandex.ru
+Password: 123qwerty321
 
 # Документация
 http://localhost/redoc
@@ -52,15 +52,15 @@ http://localhost/redoc
 POST http://localhost/api/auth/token/login/
 ```json
 {
-    "email": "zelik1@yandex.ru",
-    "password": "Qwerty999"
+    "email": "fenixzip@yandex.ru",
+    "password": "123qwerty321"
 }
 ```
 Без импортов, регистрируем нового пользователя  
 POST http://localhost/api/users/
 ```json
 {
-    "email": "abcde@yandex.ru",
+    "email": "fenixzip@yandex.ru",
     "username": "User101",
     "first_name": "Вася",
     "last_name": "Иванов",
@@ -87,10 +87,6 @@ Response status 200 OK ✅
 Python 3.9, Django 3.2, DRF 3.13, Nginx, Docker, Docker-compose, Postgresql, Github Actions.  
 <!-- 
 ***Cервер:***  
-Николай, 
-Email: fenix15@inbox.ru
-Login: fenixzip 
-Password: 123qwerty321
 http://foodgram-ya.ddns.net/recipes-->
 
 ***Превью***  

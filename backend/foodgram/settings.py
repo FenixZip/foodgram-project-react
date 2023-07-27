@@ -11,8 +11,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'default_hosts').split(',')
-# ALLOWED_HOSTS = ['51.250.25.237', '127.0.0.1', 'localhost', 'foodgram-ya.ddns.net', 'backend']
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'default_hosts').split(',')
+ALLOWED_HOSTS = ['51.250.25.237', '127.0.0.1', 'localhost', 'foodgram-ya.ddns.net', 'backend']
 
 INSTALLED_APPS = [
     'django.contrib.admin',

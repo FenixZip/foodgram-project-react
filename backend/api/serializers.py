@@ -260,6 +260,10 @@ class SubscribeSerializer(serializers.ModelSerializer):
 
     def get_recipes(self, obj):
         recipes = obj.author.recipe.all()
+        request = self.context.get('request')
+        limit = request.GET.get('recipes_limit')
+        if limit:
+            recipes = recipes[:int(limit)]
         return SubscribeRecipeSerializer(
             recipes,
             many=True).data

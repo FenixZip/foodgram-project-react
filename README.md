@@ -33,7 +33,7 @@ sudo docker compose -f docker-compose.production.yml exec backend python manage.
 Если выполнены все импорты в базу данных:
 ```bash
 # Админ зона
-http://localhost:8000/admin
+https://foodgram-ya.ddns.net/admin
 Email: fenix15@inbox.ru
 Login: fenixzip
 Password: 123qwerty321
@@ -43,8 +43,7 @@ http://localhost:8000
 Email: fenixzip@yandex.ru
 Password: 123qwerty321
 
-# Документация
-http://localhost/redoc
+
 ```
 **POSTMAN**  
 Для полноценного использования API необходимо выполнить регистрацию пользователя и получить токен. Инструкция для ***Postman:***
@@ -58,7 +57,7 @@ POST http://localhost/api/auth/token/login/
 }
 ```
 Без импортов, регистрируем нового пользователя  
-POST http://localhost/api/users/
+POST http://foodgram-ya.ddns.net/api/users/
 ```json
 {
     "email": "fenixzip@yandex.ru",
@@ -69,7 +68,7 @@ POST http://localhost/api/users/
 }
 ```
 Получаем токен  
-POST http://localhost/api/auth/token/login/
+POST http://foodgram-ya.ddns.net/api/auth/token/login/
 ```json
 {
     "password": "Qwerty777",

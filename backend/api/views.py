@@ -14,6 +14,7 @@ from recipes.models import (FavoriteRecipe, Ingredient, Recipe, ShoppingCart,
 
 from .filters import IngredientFilter, RecipesFilter
 from .mixins import CreateDestroyViewSet
+from .pagination import CustomPagination
 from .permissions import IsAuthorOrReadOnly
 from .serializers import (FavoriteRecipeSerializer, IngredientSerializer,
                           RecipeEditSerializer, RecipeReadSerializer,
@@ -28,6 +29,7 @@ class RecipeViewSet(viewsets.ModelViewSet):
     """Работа с рецептами. Создание/изменение/удаление рецепта.
     Получение информации о рецептах."""
     queryset = Recipe.objects.all()
+    pagination_class = CustomPagination
     permission_classes = (IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly)
     filterset_class = RecipesFilter
 

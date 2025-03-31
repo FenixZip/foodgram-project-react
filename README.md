@@ -1,93 +1,137 @@
- ## Продуктовый помощник - foodgram
 
- ![workflow](https://github.com/FenixZip/foodgram-project-react/workflows/foodgram_workflow.yml/badge.svg)
+# 🍲 Продуктовый помощник — Foodgram
+
+![workflow](https://github.com/FenixZip/foodgram-project-react/workflows/foodgram_workflow.yml/badge.svg)
 
 ---
 
- Приложение, на котором пользователи будут публиковать рецепты, добавлять чужие рецепты в избранное и подписываться на публикации других авторов. Сервис «cписок покупок» позволит пользователям создавать список продуктов, которые нужно купить для приготовления выбранных блюд. Есть возможность выгрузить файл (.txt) с перечнем и количеством необходимых ингредиентов для рецептов.
+## 📌 Описание
 
- ***Для работы с проектом необходимо выполнить действия, описанные ниже.***
+**Foodgram** — это сервис, где пользователи могут:
 
- ```bash
+- публиковать рецепты;
+- добавлять рецепты в избранное;
+- подписываться на других авторов;
+- формировать список покупок;
+- выгружать `.txt` файл с ингредиентами и количеством для блюд.
+
+---
+
+## 🚀 Быстрый старт
+
+### 🧩 Установка
+
+```bash
 git clone <project>
 cd foodgram-project-react/infra/
-# сделайте копию файла <.env.example> в <.env>
 cp .env.example .env
- ```
+```
 
-**Docker**
- ```bash
+### 🐳 Запуск в Docker (production)
+
+```bash
 sudo docker compose -f docker-compose.production.yml up -d
+# или с пересборкой
 sudo docker compose -f docker-compose.production.yml up -d --build
+```
+
+### ⚙️ Первичная настройка
+
+```bash
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py makemigrations 
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic --noinput
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py import_tags
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py import_ingredients
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py createsuperuser
-# Для заполнения базы пользователями и рецептами выполните:
+
+# Заливка тестовых данных
 sudo docker compose -f docker-compose.production.yml exec backend python manage.py data_test
 ```
-***Тестовый пользователь и администратор***
 
-Если выполнены все импорты в базу данных:
-```bash
-# Админ зона
-https://foodgram-ya.ddns.net/admin
-Email: fenix15@inbox.ru
-Login: fenixzip
-Password: 123qwerty321
+---
 
-# Тестовый пользователь
-http://localhost:8000
-Email: fenixzip@yandex.ru
-Password: 123qwerty321
+## 👤 Тестовые учётные записи
 
+> ⚠️ Актуально, если выполнены все импорты в БД
 
-```
-**POSTMAN**  
-Для полноценного использования API необходимо выполнить регистрацию пользователя и получить токен. Инструкция для ***Postman:***
+### 🔐 Админ-зона
+- 📍 https://foodgram-ya.ddns.net/admin
+- ✉️ Email: fenix15@inbox.ru
+- 👤 Логин: fenixzip
+- 🔑 Пароль: 123qwerty321
 
-Получить токен для тестового пользователя если выполнены все импорты:  
-POST http://localhost/api/auth/token/login/
+### 👤 Тестовый пользователь
+- 📍 http://localhost:8000
+- ✉️ Email: fenixzip@yandex.ru
+- 🔑 Пароль: 123qwerty321
+
+---
+
+## 📫 Postman и API
+
+### 🔑 Получить токен (тестовый пользователь)
+
+`POST http://localhost/api/auth/token/login/`
+
 ```json
 {
-    "email": "fenixzip@yandex.ru",
-    "password": "123qwerty321"
+  "email": "fenixzip@yandex.ru",
+  "password": "123qwerty321"
 }
 ```
-Без импортов, регистрируем нового пользователя  
-POST http://foodgram-ya.ddns.net/api/users/
-```json
-{
-    "email": "fenixzip@yandex.ru",
-    "username": "User101",
-    "first_name": "Вася",
-    "last_name": "Иванов",
-    "password": "Qwerty777"
-}
-```
-Получаем токен  
-POST http://foodgram-ya.ddns.net/api/auth/token/login/
-```json
-{
-    "password": "Qwerty777",
-    "email": "abcde@yandex.ru"
-}
-```
-Response status 200 OK ✅
-```json
-{
-    "token": "eyJ0e..........."
-}
-```
-Полученный токен вставляем Postman -> закладка Headers -> Key(Authorization) -> Value (Ваш токен в формате: Token da6ee....)  
 
-***Технологии:***  
-Python 3.9, Django 3.2, DRF 3.13, Nginx, Docker, Docker-compose, Postgresql, Github Actions.  
-<!-- 
-***Cервер:***  
-http://foodgram-ya.ddns.net/recipes-->
+### 🆕 Регистрация нового пользователя
 
-***Превью***  
-<img src="https://github.com/HelloAgni/foodgram-project-react/blob/master/backend/media/recipes/images/preview.jpg" alt="img" width="600" height='350'>
+`POST http://foodgram-ya.ddns.net/api/users/`
+
+```json
+{
+  "email": "fenixzip@yandex.ru",
+  "username": "User101",
+  "first_name": "Вася",
+  "last_name": "Иванов",
+  "password": "Qwerty777"
+}
+```
+
+### 🔐 Получить токен
+
+`POST http://foodgram-ya.ddns.net/api/auth/token/login/`
+
+```json
+{
+  "email": "abcde@yandex.ru",
+  "password": "Qwerty777"
+}
+```
+
+✅ Ответ:
+```json
+{
+  "token": "eyJ0e..........."
+}
+```
+
+🔧 Использование токена в Postman:
+- Headers:
+  - Key: `Authorization`
+  - Value: `Token ваш_токен`
+
+---
+
+## 🛠️ Используемые технологии
+
+- Python 3.9
+- Django 3.2
+- Django REST Framework 3.13
+- Postgresql
+- Docker, Docker Compose
+- Nginx
+- GitHub Actions (CI/CD)
+
+---
+
+## 📸 Превью
+
+<img src="https://github.com/HelloAgni/foodgram-project-react/blob/master/backend/media/recipes/images/preview.jpg" alt="preview" width="600" height="350">

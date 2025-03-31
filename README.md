@@ -121,8 +121,8 @@ sudo docker compose -f docker-compose.production.yml exec backend python manage.
 
 ## 🛠️ Используемые технологии
 
-- Python 3.9
-- Django 3.2
+- Python 3.11
+- Django 5+
 - Django REST Framework 3.13
 - Postgresql
 - Docker, Docker Compose

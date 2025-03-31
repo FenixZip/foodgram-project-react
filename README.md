@@ -1,7 +1,6 @@
 
 # 🍲 Продуктовый помощник — Foodgram
 
-![workflow](https://github.com/FenixZip/foodgram-project-react/workflows/foodgram_workflow.yml/badge.svg)
 
 ---
 
